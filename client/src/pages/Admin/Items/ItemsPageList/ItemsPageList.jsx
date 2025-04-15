@@ -29,9 +29,9 @@ function ItemsPage() {
                 <table className="centered-table text-sm text-gray-800">
                     <thead>
                         <tr>
-                            <th>Imagem</th>
+                            <th>Image</th>
                             <th>Item</th>
-                            <th colSpan="2">Ações</th>
+                            <th colSpan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

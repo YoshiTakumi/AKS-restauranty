@@ -30,7 +30,7 @@ function CreateDietary() {
             .then((response) => {
                 if (response.status === 200) {
                     console.log(response.data);
-                    console.log("Dietary Inserted.");
+                    console.log("Category Inserted.");
                     navigate("/dietary");
                 }
             })
@@ -50,7 +50,7 @@ function CreateDietary() {
 
                         <textarea className="forms m-2" name="description" placeholder="Descricação da Categoria" value={description} onChange={handleDescription} /><br />
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        <button className="button m-2" type="submit">Create Categoria</button>
+                        <button className="button m-2" type="submit">Create Category</button>
                     </form>
                 </div>
             </div>

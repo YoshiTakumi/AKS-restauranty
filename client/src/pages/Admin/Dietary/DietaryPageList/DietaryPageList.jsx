@@ -24,14 +24,14 @@ function DietaryPageList() {
     }
     return (
         <div>
-            <h1>Dietary List Page</h1>
+            <h1>Category List Page</h1>
             <div className="page-container">
                 <table className="centered-table">
                     <thead>
                         <tr>
-                            <th>Categorias</th>
-                            <th className="w-[300px]">Descricação</th>
-                            <th colSpan="2">Ações</th>
+                            <th>Categories</th>
+                            <th className="w-[300px]">Description</th>
+                            <th colSpan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

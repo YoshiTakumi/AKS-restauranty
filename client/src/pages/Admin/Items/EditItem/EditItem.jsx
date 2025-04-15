@@ -108,7 +108,7 @@ function EditItem() {
             !description ||
             !dietaryInformation
         ) {
-            setErrorMessage("Os Campos Devem Estar Todos Preenchidos!");
+            setErrorMessage("All fields must be filled.");
             return;
         }
 
@@ -150,7 +150,7 @@ function EditItem() {
                                 type="text"
                                 name="name"
                                 value={name}
-                                placeholder="Nome do Item"
+                                placeholder="Item Name"
                                 onChange={handleName}
                             />
                         </div>
@@ -160,7 +160,7 @@ function EditItem() {
                                 type="text"
                                 name="price"
                                 value={price}
-                                placeholder="Preço do Item"
+                                placeholder="Price"
                                 onChange={handlePrice}
                             />
                         </div>
@@ -169,7 +169,7 @@ function EditItem() {
                                 className="forms m-4"
                                 name="description"
                                 value={description}
-                                placeholder="Descrição do Item"
+                                placeholder="Description"
                                 onChange={handleDescription}
                             />
                         </div>
@@ -186,8 +186,8 @@ function EditItem() {
                             {previewSrc && <img src={previewSrc} width={400} className="images" alt="Preview" />}
                         </div>
                         <div>
-                            <input type="radio" name="availability" id="available" value="true" onChange={handleAvailability} /><label className="m-2" htmlFor="available" >Disponivel</label>
-                            <input type="radio" name="availability" id="notavailable" value="false" onChange={handleAvailability} /><label className="m-2" htmlFor="notavailable">Indisponivel</label>
+                            <input type="radio" name="availability" id="available" value="true" onChange={handleAvailability} /><label className="m-2" htmlFor="available" >Available</label>
+                            <input type="radio" name="availability" id="notavailable" value="false" onChange={handleAvailability} /><label className="m-2" htmlFor="notavailable">Unavailable</label>
                         </div>
                         <div>
                             {item.dietaryInformation && !showSelectDietary && (
@@ -220,7 +220,7 @@ function EditItem() {
                                                 value={dietaryInformation[index] || ""}
                                                 onChange={(e) => handleDietaryInfo(e, index)}
                                             >
-                                                <option value="" disabled>Selecione uma Category</option>
+                                                <option value="" disabled>Select Category</option>
                                                 {dietaryOptions.map((option) => (
                                                     <option key={option.id} value={option.name}>
                                                         {option.name} - {option.description}
@@ -228,7 +228,7 @@ function EditItem() {
                                                 ))}
                                             </select>
                                             {index == 0 && (
-                                                <button className="button m-2" type="button" onClick={handleAddDietary}>Adicionar Category</button>
+                                                <button className="button m-2" type="button" onClick={handleAddDietary}>Add Category</button>
                                             )}
                                             {index >= 1 && (
                                                 <button className="button m-2" type="button" onClick={() => handleRemoveDietary(index)}>
@@ -241,7 +241,7 @@ function EditItem() {
                                 </div>
                             )}
                         </div>
-                        <button className="button m-2" type="submit">Atualizar Item</button>
+                        <button className="button m-2" type="submit">Update Item</button>
                         <Link to="/items"><button className="button cancel m-2" type="button">Cancelar</button></Link>
                         {errorMessage && <p>{errorMessage}</p>}
                     </form>

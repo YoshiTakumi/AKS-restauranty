@@ -78,7 +78,7 @@ function CreateItem() {
       !description ||
       !dietaryInformation
     ) {
-      setErrorMessage("Os Campos Devem Estar Todos Preenchidos!");
+      setErrorMessage("All fields must be filled.");
       return;
     }
     // Create an object representing the request body
@@ -120,7 +120,7 @@ function CreateItem() {
                 className="forms m-4"
                 type="text"
                 name="name"
-                placeholder="Nome do Item"
+                placeholder="Item Name"
                 value={name}
                 onChange={handleName}
               />
@@ -130,7 +130,7 @@ function CreateItem() {
                 className="forms"
                 type="text"
                 name="price"
-                placeholder="Preço do Item"
+                placeholder="Price"
                 value={price}
                 onChange={handlePrice}
                 pattern="\d*"
@@ -141,7 +141,7 @@ function CreateItem() {
                 <textarea
                   className="forms m-4"
                   name="description"
-                  placeholder="Descrição do Item"
+                  placeholder="Description"
                   value={description}
                   onChange={handleDescription}
                 />
@@ -166,7 +166,7 @@ function CreateItem() {
                 value="true"
                 onChange={handleAvailability}
               />
-              <label className="m-2" htmlFor="available">Disponivel</label>
+              <label className="m-2" htmlFor="available">Available</label>
               <input
                 type="radio"
                 name="availability"
@@ -174,7 +174,7 @@ function CreateItem() {
                 value="false"
                 onChange={handleAvailability}
               />
-              <label className="m-2" htmlFor="notavailable">Indisponivel</label>
+              <label className="m-2" htmlFor="notavailable">Unavailable</label>
             </div>
             <div>
               <select
@@ -183,7 +183,7 @@ function CreateItem() {
                 value={dietaryInformation}
                 onChange={handleDietaryInfo}
               >
-                <option value="" disabled>Seleciona uma Categoria</option>
+                <option value="" disabled>Select a Category</option>
                 {dietaryOptions.map((option) => (
                   <option key={option.id} value={option.name}>
                     {option.name} - {option.description}
@@ -205,7 +205,7 @@ function CreateItem() {
                       handleAdditionalDietaryInfoChange(index, e.target.value)
                     }
                   >
-                    <option value="" disabled>Seleciona uma Categoria</option>
+                    <option value="" disabled>Select a Category</option>
                     {dietaryOptions.map((option) => (
                       <option key={option.id} value={option.name}>
                         {option.name} - {option.description}
@@ -218,7 +218,7 @@ function CreateItem() {
                     type="button"
                     onClick={() => handleRemoveDietaryInfo(index)}
                   >
-                    Remover
+                    Remove
                   </button>
                 </div>
               ))}

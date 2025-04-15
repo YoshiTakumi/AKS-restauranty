@@ -31,13 +31,13 @@ function CreateCoupon() {
 
         // Check if the start date is later than the end date
         if (startDate > endDate) {
-            setErrorMessage("A Data Inicial Não Pode Ser Inferior a Data de Expiração!");
+            setErrorMessage("The initial date can't be earlier from the expiry date.");
             return;
         }
 
         // Check if all required fields are filled
         if (!name || !start || !end || !discount) {
-            setErrorMessage("Os Campos Devem Estar Todos Preenchidos!");
+            setErrorMessage("All fields must be filled.");
             return;
         }
 

@@ -41,11 +41,11 @@ function EditCampaign() {
 
         // Check if the start date is later than the end date
         if (startDate > endDate) {
-            setErrorMessage("A Data Inicial Não Pode Ser Inferior a Data de Expiração!");
+            setErrorMessage("The initial date mustn't be before the expiry date.");
             return;
         }
         if (!name || !start || !end || !description) {
-            setErrorMessage("Os Campos Devem Estar Todos Preenchidos!");
+            setErrorMessage("All fields must be filled.");
             return;
         }
 
@@ -77,14 +77,14 @@ function EditCampaign() {
 
                         <input className="forms m-2" type="text" name="description" value={description} onChange={handleDescription} placeholder="Descrição da Campanha" /><br />
 
-                        <p>Data Inicial</p>
+                        <p>Initial Date</p>
                         <input className="forms m-2" type="date" name="start" value={start} onChange={handleStart} /><br />
 
-                        <p>Data de Expiração</p>
+                        <p>Expiry Date</p>
                         <input className="forms m-2" type="date" name="end" value={end} onChange={handleEnd} /><br />
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        <button className="button m-2" type="submit">Edit Campanha</button><Link to={`/discounts/campaigns`}>
-                            <button className="button cancel m-2">Cancelar</button></Link>
+                        <button className="button m-2" type="submit">Edit Campaign</button><Link to={`/discounts/campaigns`}>
+                            <button className="button cancel m-2">Cancel</button></Link>
                     </form>
                 </div>
 

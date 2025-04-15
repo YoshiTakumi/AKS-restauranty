@@ -55,14 +55,14 @@ function EditDietary() {
     return (
         <div className="main">
             <div className="max-w-[400px]">
-                <h1>Edit a Categoria {dietary.name} </h1>
+                <h1>Edit Category {dietary.name} </h1>
                 <div className="inputwrap">
                     <form onSubmit={ItemhandleSubmit}>
                         <div>
-                            <input className="forms mt-4 m-2" type="text" name="name" value={name} onChange={handleName} placeholder="Nome da Categoria" />
+                            <input className="forms mt-4 m-2" type="text" name="name" value={name} onChange={handleName} placeholder="Category Name" />
                         </div>
                         <div>
-                            <input className="forms m-2" type="text" name="description" value={description} onChange={handleDescription} placeholder="Descricação da Categoria" />
+                            <input className="forms m-2" type="text" name="description" value={description} onChange={handleDescription} placeholder="Category Description" />
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <button className="button m-2" type="submit">Edit Item</button>

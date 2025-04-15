@@ -25,15 +25,15 @@ function CouponPageList() {
 
     return (
         <div>
-            <h1>Cupões</h1>
+            <h1>Coupons</h1>
             <div className="page-container">
                 <table className="centered-table">
                     <thead>
                         <tr>
                             <th>Code Coupon</th>
-                            <th className="w-60">Data Inicial</th>
-                            <th className="w-60">Data de Expiração</th>
-                            <th colSpan="2">Ações</th>
+                            <th className="w-60">Initial Date</th>
+                            <th className="w-60">Expiry Date</th>
+                            <th colSpan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

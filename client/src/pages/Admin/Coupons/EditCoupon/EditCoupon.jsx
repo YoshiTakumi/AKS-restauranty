@@ -44,13 +44,13 @@ function EditCoupon() {
         const startDate = new Date(start);
         const endDate = new Date(end);
         if (!name || !start || !end || !discount) {
-            setErrorMessage("Os Campos Devem Estar Todos Preenchidos!");
+            setErrorMessage("All fields must be filled.");
             return;
         }
 
         // Check if the start date is later than the end date
         if (startDate > endDate) {
-            setErrorMessage("A Data Inicial Não Pode Ser Inferior a Data de Expiração!");
+            setErrorMessage("The initial date mustn't be before the expiry date.");
             return;
         }
 
@@ -80,7 +80,7 @@ function EditCoupon() {
                     <form onSubmit={ItemhandleSubmit}>
                         <input className="forms mt-4 m-2" type="text" name="name" value={name} onChange={handleName} placeholder="Code Coupon" /><br />
 
-                        <input className="forms m-2" type="text" name="discount" value={discount} onChange={handleDiscount} placeholder="Valor do Disconto(%)" /><br />
+                        <input className="forms m-2" type="text" name="discount" value={discount} onChange={handleDiscount} placeholder="Discount Amount(%)" /><br />
 
                         <p>Starting Date:</p>
                         <input className="forms m-2" type="date" name="start" value={start} onChange={handleStart} />
@@ -90,7 +90,7 @@ function EditCoupon() {
                         <div>
                             {errorMessage && <p className="error-message">{errorMessage}</p>}
                             <button className="button m-2" type="submit">Edit Item</button>
-                            <Link to={`/discounts/coupons`}><button className="button cancel m-2">Cancelar</button></Link>
+                            <Link to={`/discounts/coupons`}><button className="button cancel m-2">Cancel</button></Link>
                         </div>
                     </form>
                 </div>
