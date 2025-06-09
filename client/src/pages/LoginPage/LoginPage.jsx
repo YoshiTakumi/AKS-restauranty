@@ -50,14 +50,14 @@ function LoginPage() {
         <form id="form" onSubmit={handleLoginSubmit}>
           <div className="inputwrap">
             <div className="relative mt-6 mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <MdEmail class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <MdEmail className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="email" name="email" placeholder="Email" value={email} onChange={handleEmail} />
             </div>
             <div className="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaLock class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaLock className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input
                 className="input-forms"

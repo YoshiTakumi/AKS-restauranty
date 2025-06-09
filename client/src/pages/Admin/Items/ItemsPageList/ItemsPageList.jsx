@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 import { FaTrashCan } from "react-icons/fa6"
 import { FaPen } from "react-icons/fa6"
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function ItemsPage() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get(`${url}/items/items`).then((response) => {
+        axios.get(`${url}/api/items/items`).then((response) => {
             setItems(response.data);
         });
     }, []);
 
     function deleteItem(id) {
-        axios.delete(`${url}/items/items/${id}`).then((response) => {
+        axios.delete(`${url}/api/items/items/${id}`).then((response) => {
             setItems((prevItems) => prevItems.filter((item) => item._id !== id));
         });
     }

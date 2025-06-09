@@ -57,38 +57,38 @@ function SignupPage() {
         <form onSubmit={handleSignupSubmit}>
           <div className="inputwrap">
             <div className="relative mt-6 mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaCircleUser class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaCircleUser className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="text" name="name" placeholder="Name" value={name} onChange={handleName} />
             </div>
             <div className="relative mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaRegCircleUser class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaRegCircleUser className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="text" name="surname" placeholder="Surname" value={surname} onChange={handleSurname} />
             </div>
             <div className="relative mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <MdEmail class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <MdEmail className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="email" name="email" placeholder="Email" value={email} onChange={handleEmail} />
             </div>
             <div className="relative  mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaLocationDot class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaLocationDot className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="text" name="address" placeholder="Address" value={address} onChange={handleAddress} />
             </div>
             <div className="relative mb-6">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaPhoneFlip class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaPhoneFlip className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input className="input-forms" type="text" name="phoneNumber" placeholder="Phone Number" value={phoneNumber} onChange={handlephoneNumber} />
             </div>
             <div className="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaLock class="w-[1.15rem] h-[1.15rem] text-gray-400" />
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <FaLock className="w-[1.15rem] h-[1.15rem] text-gray-400" />
               </div>
               <input
                 className="input-forms"

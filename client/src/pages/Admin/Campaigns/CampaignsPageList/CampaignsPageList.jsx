@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 import { FaTrashCan } from "react-icons/fa6"
 import { FaPen } from "react-icons/fa6"
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_DISCOUNTS_URL || "http://localhost:80"
 
 function CampaignsPageList() {
     const [campaigns, setCampaigns] = useState([]);
 
     useEffect(() => {
-        axios.get(`${url}/campaign`).then((response) => {
+        axios.get(`${url}/api/discounts/campaign`).then((response) => {
             setCampaigns(response.data);
             console.log(response.data)
         });
     }, []);
 
     function deleteItem(id) {
-        axios.delete(`${url}/campaign/${id}`).then((response) => {
+        axios.delete(`${url}/api/discounts/campaign/${id}`).then((response) => {
             setCampaigns((prevItems) => prevItems.filter((campaign) => campaign._id !== id));
         });
     }

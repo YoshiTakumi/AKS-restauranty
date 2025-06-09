@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function EditDietary() {
     const [dietary, setDietary] = useState("");
@@ -12,7 +12,7 @@ function EditDietary() {
     const { DietaryId } = useParams();
 
     useEffect(() => {
-        axios.get(`${url}/items/dietary/${DietaryId}`).then((response) => {
+        axios.get(`${url}/api/items/dietary/${DietaryId}`).then((response) => {
             setDietary(response.data);
             setName(response.data.name)
             setDescription(response.data.description)
@@ -38,7 +38,7 @@ function EditDietary() {
         const requestBody = { _id, name, description };
 
         axios
-            .put(`${url}/items/dietary/${dietary._id}`, requestBody)
+            .put(`${url}/api/items/dietary/${dietary._id}`, requestBody)
             .then((response) => {
                 if (response.status === 200) {
                     console.log(response.data);

@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 import { FaTrashCan } from "react-icons/fa6"
 import { FaPen } from "react-icons/fa6"
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_DISCOUNTS_URL || "http://localhost:80"
 
 function CouponPageList() {
     const [coupons, setCoupons] = useState([]);
 
     useEffect(() => {
-        axios.get(`${url}/discounts/coupons`).then((response) => {
+        axios.get(`${url}/api/discounts/coupons`).then((response) => {
             setCoupons(response.data);
             console.log(response.data)
         });
     }, []);
 
     function deleteItem(id) {
-        axios.delete(`${url}/discounts/coupons/${id}`).then((response) => {
+        axios.delete(`${url}/api/discounts/coupons/${id}`).then((response) => {
             setCoupons((prevItems) => prevItems.filter((coupon) => coupon._id !== id));
         });
     }

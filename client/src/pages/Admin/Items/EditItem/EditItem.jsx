@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function EditItem() {
     const [item, setItem] = useState("");
@@ -23,7 +23,7 @@ function EditItem() {
 
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`${url}/items/items/${itemId}`).then((response) => {
+        axios.get(`${url}/api/items/items/${itemId}`).then((response) => {
             setItem(response.data);
             setName(response.data.name);
             setPrice(response.data.price);
@@ -124,7 +124,7 @@ function EditItem() {
         formData.append("imagem", file);
 
         axios
-            .put(`${url}/items/items/${item._id}`, formData)
+            .put(`${url}/api/items/items/${item._id}`, formData)
             .then((response) => {
                 if (response.status === 200) {
                     console.log(response.data);

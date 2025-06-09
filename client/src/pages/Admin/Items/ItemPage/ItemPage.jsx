@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function ItemsPage() {
 
@@ -11,7 +11,7 @@ function ItemsPage() {
     const { itemId } = useParams();
 
     useEffect(() => {
-        axios.get(`${url}/items/items/${itemId}`).then((response) => {
+        axios.get(`${url}/api/items/items/${itemId}`).then((response) => {
             setItem(response.data);
             console.log(response.data);
         });

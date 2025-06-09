@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_DISCOUNTS_URL || "http://localhost:80"
 
 function EditCampaign() {
     const [campaign, setCampaign] = useState("");
@@ -14,7 +14,7 @@ function EditCampaign() {
     const { CampaignId } = useParams();
 
     useEffect(() => {
-        axios.get(`${url}/campaign/${CampaignId}`).then((response) => {
+        axios.get(`${url}/api/discounts/campaign/${CampaignId}`).then((response) => {
             setCampaign(response.data);
             setName(response.data.name)
             setDescription(response.data.description)
@@ -53,7 +53,7 @@ function EditCampaign() {
         const requestBody = { _id, name, start, end, description };
 
         axios
-            .put(`${url}/campaign/${campaign._id}`, requestBody)
+            .put(`${url}/api/discounts/campaign/${campaign._id}`, requestBody)
             .then((response) => {
                 if (response.status === 200) {
                     console.log(response.data);

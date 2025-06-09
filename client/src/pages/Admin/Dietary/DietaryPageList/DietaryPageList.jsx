@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 import { FaTrashCan } from "react-icons/fa6"
 import { FaPen } from "react-icons/fa6"
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function DietaryPageList() {
     const [dietaries, setDietary] = useState([]);
 
     useEffect(() => {
-        axios.get(`${url}/items/dietary`).then((response) => {
+        axios.get(`${url}/api/items/dietary`).then((response) => {
             setDietary(response.data);
             console.log(response.data)
         });
     }, []);
 
     function deleteItem(id) {
-        axios.delete(`${url}/items/dietary/${id}`).then((response) => {
+        axios.delete(`${url}/api/items/dietary/${id}`).then((response) => {
             setDietary((prevItems) => prevItems.filter((dietary) => dietary._id !== id));
         });
     }

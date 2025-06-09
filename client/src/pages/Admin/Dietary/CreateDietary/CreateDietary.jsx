@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const url = process.env.REACT_APP_SERVER_URL || "http://localhost:80"
+const url = process.env.REACT_APP_SERVER_URL || process.env.REACT_APP_SERVER_ITEMS_URL || "http://localhost:80"
 
 function CreateDietary() {
     const [name, setName] = useState("");
@@ -26,7 +26,7 @@ function CreateDietary() {
         const requestBody = { name, description };
 
         axios
-            .post(`${url}/items/dietary`, requestBody)
+            .post(`${url}/api/items/dietary`, requestBody)
             .then((response) => {
                 if (response.status === 200) {
                     console.log(response.data);
