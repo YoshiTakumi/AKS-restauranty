@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mymongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  auth-service:
+    build: ./backend/auth
+    container_name: auth-service
+    ports:
+      - "3001:3001"
+    env_file: ./backend/auth/.env
+    depends_on:
+      - mongo
+
+  items-service:
+    build: ./backend/items
+    container_name: items-service
+    ports:
+      - "3003:3003"
+    env_file: ./backend/items/.env
+    depends_on:
+      - mongo
+
+  discounts-service:
+    build: ./backend/discounts
+    container_name: discounts-service
+    ports:
+      - "3002:3002"
+    env_file: ./backend/discounts/.env
+    depends_on:
+      - mongo
+
+  client:
+    build: ./client
+    container_name: client
+    ports:
+      - "3000:80" 
+    env_file: ./client/.env
+    depends_on:
+      - auth-service
+      - items-service
+      - discounts-service
+
+  haproxy:
+    image: haproxy:2.8
+    container_name: haproxy
+    ports:
+      - "80:80" 
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends_on:
+      - auth-service
+      - items-service
+      - discounts-service
+      - client
+
+volumes:
+  mongo_data:
