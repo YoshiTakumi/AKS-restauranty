@@ -11,5 +11,4 @@ mobile/.expo
 LICENSE.txt
 *.tfstate
 *.lock.hcl
-/home/yoshiTakumi/Documents/restauranty/aks-tf/.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.34.0/linux_amd64
-/home/yoshiTakumi/Documents/restauranty/aks-tf/.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.34.0/linux_amd64/terraform-provider-azurerm_v4.34.0_x5
+aks-tf/.terraform/
