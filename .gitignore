@@ -7,3 +7,8 @@ server/.env
 backend/*/.env
 backend/*/node_modules
 mobile/.expo
+*.tfvars
+LICENSE.txt
+*.tfstate
+*.lock.hcl
+aks-tf/.terraform/
