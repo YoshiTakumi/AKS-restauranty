@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: items-deployment
+  labels:
+    app: items
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: items
+  template:
+    metadata:
+      labels:
+        app: items
+    spec:
+      containers:
+        - name: items
+          image: restaurantyacr2024.azurecr.io/restauranty-items-service:latest
+          ports:
+            - containerPort: 3003
+          envFrom:
+            - secretRef:
+                name: items-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: items-service
+spec:
+  type: ClusterIP
+  selector:
+    app: items
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 3003
