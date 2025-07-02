@@ -1,0 +1,6 @@
+apiVersion: v2
+name: grafana-ingress
+description: Ingress resource for Grafana in AKS
+type: application
+version: 0.1.0
+appVersion: "1.0"
