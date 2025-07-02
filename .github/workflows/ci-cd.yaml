@@ -63,6 +63,29 @@ jobs:
       - name: Log in to ACR
         run: az acr login --name ${{ env.ACR_NAME }}
 
+      - name: Create/update auth-secrets
+        run: |
+          kubectl create secret generic auth-secrets \
+            --from-literal=SECRET="${{ secrets.AUTH_SECRET }}" \
+            --from-literal=MONGODB_URI="${{ secrets.AUTH_MONGODB_URI }}" \
+            --dry-run=client -o yaml | kubectl apply -f -
+
+      - name: Create/update discounts-secrets
+        run: |
+          kubectl create secret generic discounts-secrets \
+            --from-literal=SECRET="${{ secrets.DISCOUNTS_SECRET }}" \
+            --from-literal=MONGODB_URI="${{ secrets.DISCOUNTS_MONGODB_URI }}" \
+            --dry-run=client -o yaml | kubectl apply -f -
+
+      - name: Create/update items-secrets
+        run: |
+          kubectl create secret generic items-secrets \
+            --from-literal=SECRET="${{ secrets.ITEMS_SECRET }}" \
+            --from-literal=MONGODB_URI="${{ secrets.ITEMS_MONGODB_URI }}" \
+            --from-literal=AZURE_STORAGE_CONNECTION_STRING="${{ secrets.ITEMS_AZURE_STORAGE_CONNECTION_STRING }}" \
+            --from-literal=CONTAINER_NAME="${{ secrets.ITEMS_CONTAINER_NAME }}" \
+            --dry-run=client -o yaml | kubectl apply -f -
+
       - name: Build & Push Auth Image
         run: |
           docker build -t ${{ env.ACR_LOGIN_SERVER }}/restauranty-auth-service:latest ./backend/auth
@@ -80,7 +103,9 @@ jobs:
 
       - name: Build & Push Client Image
         run: |
-          docker build -t ${{ env.ACR_LOGIN_SERVER }}/restauranty-client:latest ./client
+          docker build \
+            --build-arg REACT_APP_SERVER_URL=${{ secrets.CLIENT_REACT_APP_SERVER_URL }} \
+            -t ${{ env.ACR_LOGIN_SERVER }}/restauranty-client:latest ./client
           docker push ${{ env.ACR_LOGIN_SERVER }}/restauranty-client:latest
 
       - name: Deploy to AKS (apply all K8s manifests)
