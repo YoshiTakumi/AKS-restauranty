@@ -25,25 +25,13 @@ jobs:
         working-directory: ./backend/auth
         run: npm ci
 
-      - name: Build auth
-        working-directory: ./backend/auth
-        run: npm run build
-
       - name: Install discounts dependencies
         working-directory: ./backend/discounts
         run: npm ci
 
-      - name: Build discounts
-        working-directory: ./backend/discounts
-        run: npm run build
-
       - name: Install items dependencies
         working-directory: ./backend/items
         run: npm ci
-
-      - name: Build items
-        working-directory: ./backend/items
-        run: npm run build
 
       - name: Install client dependencies
         working-directory: ./client
@@ -56,6 +44,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
