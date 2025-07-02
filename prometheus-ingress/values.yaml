@@ -1,4 +1,4 @@
-prometheusHost: prometheus.yorgos.site  # <-- CHANGE as needed
+prometheusHost: prometheus.yorgos.site
 prometheusServiceName: monitoring-kube-prometheus-prometheus
 prometheusServicePort: 9090
 prometheusNamespace: monitoring

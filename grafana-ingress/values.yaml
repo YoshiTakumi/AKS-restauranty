@@ -1,4 +1,4 @@
-grafanaHost: grafana.yorgos.site  # <-- CHANGE THIS as needed
+grafanaHost: grafana.yorgos.site
 grafanaServiceName: monitoring-grafana
 grafanaServicePort: 80
 grafanaNamespace: monitoring
