@@ -39,7 +39,7 @@ jobs:
 
       - name: Build client
         working-directory: ./client
-        run: npm run build
+        run: CI='' npm run build
 
   deploy:
     runs-on: ubuntu-latest
