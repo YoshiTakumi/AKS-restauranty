@@ -6,6 +6,8 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+ARG REACT_APP_SERVER_URL
+ENV REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL
 
 RUN npm run build
 
