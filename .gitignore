@@ -12,3 +12,4 @@ LICENSE.txt
 *.tfstate
 *.lock.hcl
 aks-tf/.terraform/
+k8s/cluster-issuer.yaml

@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Values.grafanaNamespace }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
@@ -18,3 +19,7 @@ spec:
                 name: {{ .Values.grafanaServiceName }}
                 port:
                   number: {{ .Values.grafanaServicePort }}
+  tls:
+    - hosts:
+        - {{ .Values.grafanaHost }}
+      secretName: grafana-tls    

@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Values.prometheusNamespace }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
@@ -18,3 +19,7 @@ spec:
                 name: {{ .Values.prometheusServiceName }}
                 port:
                   number: {{ .Values.prometheusServicePort }}
+  tls:
+    - hosts:
+        - {{ .Values.prometheusHost }}
+      secretName: prometheus-tls
