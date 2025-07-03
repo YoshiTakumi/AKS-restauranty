@@ -112,10 +112,6 @@ jobs:
         run: |
           sed "s/__LETSENCRYPT_EMAIL__/${{ secrets.LETSENCRYPT_EMAIL }}/" k8s/cluster-issuer.yaml.template > k8s/cluster-issuer.yaml
 
-      - name: Apply ClusterIssuer
-        run: |
-          kubectl apply -f k8s/cluster-issuer.yaml
-
       - name: Deploy to AKS (apply all K8s manifests)
         run: kubectl apply -f k8s/
 
