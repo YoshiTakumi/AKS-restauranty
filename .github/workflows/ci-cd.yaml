@@ -108,6 +108,14 @@ jobs:
             -t ${{ env.ACR_LOGIN_SERVER }}/restauranty-client:latest ./client
           docker push ${{ env.ACR_LOGIN_SERVER }}/restauranty-client:latest
 
+      - name: Template ClusterIssuer with Lets Encrypt email
+        run: |
+          sed "s/__LETSENCRYPT_EMAIL__/${{ secrets.LETSENCRYPT_EMAIL }}/" k8s/cluster-issuer.yaml.template > k8s/cluster-issuer.yaml
+
+      - name: Apply ClusterIssuer
+        run: |
+          kubectl apply -f k8s/cluster-issuer.yaml
+
       - name: Deploy to AKS (apply all K8s manifests)
         run: kubectl apply -f k8s/
 
