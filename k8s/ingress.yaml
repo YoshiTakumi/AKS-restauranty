@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: restauranty-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
@@ -36,3 +38,7 @@ spec:
                 name: client-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - app.yorgos.site
+      secretName: restauranty-tls 
